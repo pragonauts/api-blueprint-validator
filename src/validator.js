@@ -87,12 +87,12 @@ module.exports = function (fileName, validateRequests, validateResponses) {
         process.exit(1);
       }
 
+      var errors = [];
+
       result.warnings.forEach(function (warning) {
         var lineNumber = lineNumberFromCharacterIndex(data, warning.location[0].index);
-        console.error('Warning: ' + warning.message + ' on line ' + lineNumber);
+        errors.push('Warning: ' + warning.message + ' on line ' + lineNumber);
       });
-
-      var errors = [];
 
       examples(result.ast, function (example, action, resource, resourceGroup) {
         if (validateRequests) {
