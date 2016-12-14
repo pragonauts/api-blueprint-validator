@@ -1,11 +1,19 @@
-API Blueprint Validator
+Pragonauts Blueprint Validator
 =======================
+
+**Forked from [api-blueprint-validator](https://www.npmjs.com/package/api-blueprint-validator) with theese differences:**
+
+- new Protagonist
+- warnings turned into errors
+
+--------------
+
 API Blueprint Validator validates [API Blueprint][blueprint] documents and their JSON payload.
 
 [apiary]: http://apiary.io/
 [blueprint]: http://apiary.io/blueprint
 
-## Examples outputs 
+## Examples outputs
 
 **Invalid API Blueprint:**
 
@@ -15,7 +23,7 @@ Error: unexpected header block, expected a group, resource or an action definiti
 
     Error in JSON response in group "Articles", resource "Articles", action "List articles"
         Parse error on line 32:
-        ...                    "unverifiable":5   
+        ...                    "unverifiable":5
         -----------------------^
         Expecting 'EOF', '}', ',', ']', got 'STRING'
 
@@ -23,7 +31,7 @@ Error: unexpected header block, expected a group, resource or an action definiti
 ## Usage
 
     $ ./api-blueprint-validator apiary.apib
-    
+
 Returns exit code `1` if errors was find in Blueprint or in JSON requests or responses, otherwise returns `0`, so you can use this tool with you CI server ([simple Travis integration example][travis]).
 
 [travis]: https://github.com/Demagog2/api/blob/master/.travis.yml
@@ -32,15 +40,15 @@ Returns exit code `1` if errors was find in Blueprint or in JSON requests or res
 [Node.js][] and [NPM][] is required.
 
     $ npm install api-blueprint-validator
-    
+
 [Node.js]: https://npmjs.org/
 [NPM]: https://npmjs.org/
 
 ## Command Line Options
 
     $ ./api-blueprint-validator --help
-    Usage: node ./node_modules/.bin/api-blueprint-validator apiary.apib 
-    
+    Usage: node ./node_modules/.bin/api-blueprint-validator apiary.apib
+
     Options:
       --validate-requests   [default: true]
       --validate-responses  [default: true]
